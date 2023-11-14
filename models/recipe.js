@@ -13,7 +13,6 @@ const recipe = Schema(
         },
         area: {
             type: String
-
         },
         instructions: {
             type: String
