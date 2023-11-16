@@ -15,7 +15,7 @@ app.use(cors());
 
 // app.use('/api/users', authApi);
 app.use('/api/ingredients', ingredientsApi);
-app.use('/api/recipes', recipesApi);
+app.use('/api/', recipesApi);
 
 
 app.use((_, res, __) => {
