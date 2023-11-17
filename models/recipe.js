@@ -35,9 +35,12 @@ const recipe = Schema(
         youtube: {
             type: String
         },
-        ingredients: {
+        ingredients:
+        {
             type: Array
         }
+
+
     }
 )
 
