@@ -1,4 +1,3 @@
-const User = require('../../models/user');
 const nodemailer = require('nodemailer');
 const { EMAIL_USER, EMAIL_PASS, EMAIL_HOST, EMAIL_PORT } = process.env;
 

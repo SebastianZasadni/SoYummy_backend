@@ -29,8 +29,8 @@ const recipe = Schema(
         time: {
             type: String
         },
-        faroties: {
-            type: Array
+        favorites: {
+            type: [String], default: []
         },
         youtube: {
             type: String
@@ -38,6 +38,9 @@ const recipe = Schema(
         ingredients:
         {
             type: Array
+        },
+        owner: {
+            type: String
         }
 
 

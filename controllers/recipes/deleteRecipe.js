@@ -3,7 +3,8 @@ const Recipe = require('../../models/recipe');
 const deleteRecipe = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const deleteRecipe = await Recipe.findOneAndDelete({ _id: id });
+        const { _id } = req.user;
+        const deleteRecipe = await Recipe.findOneAndDelete({ _id: id, owner: _id });
         if (!deleteRecipe) {
             return res.status(400).json({
                 status: "failed",
