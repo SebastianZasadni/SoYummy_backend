@@ -3,7 +3,7 @@ const User = require('../../models/user');
 const current = async (req, res, next) => {
     try {
         const { email, name, id } = req.user;
-        return res.json({
+        return res.status(200).json({
             id, name, email
         })
     } catch (error) {

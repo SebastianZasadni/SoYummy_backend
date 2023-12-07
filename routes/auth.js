@@ -10,7 +10,7 @@ const sendNewsletterEmail = require('../controllers/auth/sendNewsletterEmail');
 
 router.post('/signup', signup);
 router.post('/login', login);
-router.get('/logout', auth, logout);
+router.post('/logout', auth, logout);
 router.get('/current', auth, current);
 router.post('/subscribe', sendNewsletterEmail);
 
