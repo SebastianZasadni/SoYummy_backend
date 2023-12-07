@@ -2,9 +2,9 @@ const User = require('../../models/user');
 
 const current = async (req, res, next) => {
     try {
-        const user = req.user;
+        const { email, name } = req.user;
         return res.json({
-           user
+            name, email
         })
     } catch (error) {
         next(error);
