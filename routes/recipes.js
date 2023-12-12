@@ -16,7 +16,7 @@ const getFavoritesRecipes = require('../controllers/recipes/getFavoritesRecipes'
 const deleteFavoriteRecipe = require('../controllers/recipes/deleteFavoriteRecipe');
 const getPopularRecipes = require('../controllers/recipes/getPopularRecipes');
 
-router.get('/recipes/main-page', getRecipesMainPage);
+router.get('/recipes/main-page/:limit', getRecipesMainPage);
 router.get('/recipes/category-list', getCategoriesList);
 router.get('/recipes/:category', getRecipesByCategory)
 router.get('/recipes/id/:id', getRecipeById);
