@@ -6,10 +6,10 @@ const getRecipesMainPage = async (req, res, next) => {
         const breakfastRecipes = await Recipe.find({ category: "Breakfast" }).limit(limit);
         const miscellaneousRecipes = await Recipe.find({ category: "Miscellaneous" }).limit(limit);
         const chickenRecipes = await Recipe.find({ category: "Chicken" }).limit(limit);
-        const dessertsRecipes = await Recipe.find({ category: "Desserts" }).limit(limit);
+        const dessertsRecipes = await Recipe.find({ category: "Dessert" }).limit(limit);
 
         return res.status(200).json({
-            recipes: [...breakfastRecipes,
+            data: [...breakfastRecipes,
             ...miscellaneousRecipes,
             ...chickenRecipes,
             ...dessertsRecipes]
