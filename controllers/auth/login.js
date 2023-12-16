@@ -34,9 +34,8 @@ const login = async (req, res, next) => {
                     id: payload.id,
                     email: payload.email,
                     username: isUser.name,
-                    token: payload.token,
                 },
-                token,
+                token
             });
 
     } catch (error) {
