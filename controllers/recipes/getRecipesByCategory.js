@@ -3,8 +3,9 @@ const Recipe = require('../../models/recipe');
 const getRecipesByCategory = async (req, res, next) => {
     try {
         const { category } = req.params;
+        const firstLetterUpCategory = category.charAt(0).toUpperCase() + category.slice(1);
         const { page = 1 } = req.query;
-        const recipes = await Recipe.find({ category })
+        const recipes = await Recipe.find({ category: firstLetterUpCategory })
             .limit(8)
             .skip(((page - 1) * 8));
         if (!recipes.length) {
