@@ -33,7 +33,8 @@ const login = async (req, res, next) => {
                 user: {
                     id: payload.id,
                     email: payload.email,
-                    username: isUser.name
+                    username: isUser.name,
+                    token: payload.token,
                 },
                 token,
             });
