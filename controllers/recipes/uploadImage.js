@@ -1,22 +1,16 @@
-const User = require('../../models/user.js');
-const Jimp = require('jimp');
-const fs = require('fs').promises;
-const path = require('path');
-const storeImage = path.join(process.cwd(), 'public/dishes');
+const { handleUpload } = require('../../middleware/multer');
 
-const uploadImage = async (req, res, next) => {
-    const { path: tempUpload } = req.file;
-    const imageName = Date.now() + '.png';
-    const imageURL = path.join(storeImage, imageName);
+const uploadImage = async (req, res) => {
     try {
-        const image = await Jimp.read(tempUpload);
-        image.resize(340, 340);
-        await image.writeAsync(imageURL);
-        await fs.unlink(tempUpload);
-        return res.status(200).json({ imageURL });
-    } catch (err) {
-        await fs.unlink(tempUpload);
-        return next(err);
+        const b64 = Buffer.from(req.file.buffer).toString("base64");
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+        const cldRes = await handleUpload(dataURI);
+        res.json(cldRes);
+    } catch (error) {
+        console.log(error);
+        res.send({
+            message: error.message,
+        });
     }
 };
 

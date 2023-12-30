@@ -1,30 +1,24 @@
-const multer = require('multer');
-const path = require('path');
-const uploadDir = path.join(process.cwd(), 'temp');
-const fs = require('fs');
+require("dotenv").config();
+const express = require("express");
+const cloudinary = require("cloudinary").v2;
+const cors = require("cors");
+const multer = require("multer");
 
-const createDirIfNotExists = dir =>
-    !fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined;
-
-createDirIfNotExists('temp')
-createDirIfNotExists('public')
-createDirIfNotExists('public/dishes')
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, uploadDir);
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
-    },
-    limits: {
-        fileSize: 2048,
-    },
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
 });
+async function handleUpload(file) {
+    const res = await cloudinary.uploader.upload(file, {
+        resource_type: "auto",
+    });
+    return res;
+}
 
+const storage = new multer.memoryStorage();
 const upload = multer({
-    storage: storage,
+    storage,
 });
 
-module.exports = upload;
-
+module.exports = { upload, handleUpload };
