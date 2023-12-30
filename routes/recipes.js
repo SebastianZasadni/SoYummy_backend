@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const upload = require('../middleware/multer');
 
 const auth = require('../middleware/auth');
 
@@ -15,6 +16,7 @@ const addToFavorite = require('../controllers/recipes/addToFavorite');
 const getFavoritesRecipes = require('../controllers/recipes/getFavoritesRecipes');
 const deleteFavoriteRecipe = require('../controllers/recipes/deleteFavoriteRecipe');
 const getPopularRecipes = require('../controllers/recipes/getPopularRecipes');
+const uploadImage = require('../controllers/recipes/uploadImage');
 
 router.get('/recipes/main-page/:limit', getRecipesMainPage);
 router.get('/recipes/category-list', getCategoriesList);
@@ -28,5 +30,7 @@ router.get('/favorite', auth, getFavoritesRecipes);
 router.post('/favorite/:id', auth, addToFavorite);
 router.delete('/favorite/:id', auth, deleteFavoriteRecipe);
 router.get('/popular-recipes', getPopularRecipes);
+router.post('/upload', upload.single('image'), uploadImage);
+
 
 module.exports = router;
