@@ -139,7 +139,6 @@ router.get('/recipes/:category', getRecipesByCategory)
  *         description: The category to filter recipes by
  *         schema:
  *           type: string
- *     parameters:
  *       - in: query
  *         name: page
  *         description: Page number for pagination (default is 1)
@@ -628,7 +627,7 @@ router.post('/upload', upload.single('image'), uploadImage);
  *           schema:
  *             type: object
  *             properties:
- *               file:
+ *               image:
  *                 type: string
  *                 format: binary
  *     responses:
