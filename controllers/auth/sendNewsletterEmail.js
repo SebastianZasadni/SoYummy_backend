@@ -25,8 +25,8 @@ const mailOptions = (email) => {
 const sendNewsletterEmail = async (req, res, next) => {
     try {
         const { email } = req.body;
-        transporter.sendMail(mailOptions(email));
-        res.json({
+        await transporter.sendMail(mailOptions(email));
+        return res.status(200).json({
             msg: "Email has sent"
         })
     } catch (error) {

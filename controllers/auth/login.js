@@ -16,6 +16,9 @@ const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const validateLogin = loginSchema.validate({ email, password });
+        if (validateLogin.error) {
+            return res.status(400).json(validateLogin.error);
+        }
         const isUser = await User.findOne({ email });
         const validPassword = isUser && await bcrypt.compare(password, isUser.password);
 

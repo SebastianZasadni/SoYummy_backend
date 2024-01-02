@@ -5,6 +5,8 @@ require('dotenv').config();
 const recipesApi = require('./routes/recipes');
 const ingredientsApi = require('./routes/ingredients');
 const authApi = require('./routes/auth');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 
 const app = express();
 
@@ -18,7 +20,7 @@ app.use(express.static('public'));
 app.use('/api/users', authApi);
 app.use('/api/ingredients', ingredientsApi);
 app.use('/api/', recipesApi);
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((_, res, __) => {
     res.status(404).json({ message: "Not found." });
