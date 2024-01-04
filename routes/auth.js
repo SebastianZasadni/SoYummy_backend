@@ -205,6 +205,7 @@ router.post('/subscribe', sendNewsletterEmail);
  *       type: object
  *       properties:
  *         email:
+ *           default: jasiu@jasiu.pl
  *           type: string
  *           description: The email address for newsletter subscription
  */
