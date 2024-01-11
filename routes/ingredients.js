@@ -187,7 +187,7 @@ router.get('/shopping-list/', auth, getIngredientsFromShoppingList);
 router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
 /**
  * @swagger
- * /api/shopping-list/add/{id}:
+ * /api/shopping-list/{id}:
  *   get:
  *     tags:
  *       - Shopping List
@@ -256,7 +256,7 @@ router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
 router.delete('/shopping-list/:id', auth, deleteIngredientFromShoppingList);
 /**
  * @swagger
- * /api/shopping-list/delete/{id}:
+ * /api/shopping-list/{id}:
  *   delete:
  *     tags:
  *       - Shopping List
