@@ -23,7 +23,7 @@ const deleteIngredientFromShoppingList = async (req, res, next) => {
         );
         return res.status(200).json({
             status: "success",
-            response: response.shoppingList,
+            data: response.shoppingList,
             message: "Ingredient has deleted from shopping list."
         })
 
