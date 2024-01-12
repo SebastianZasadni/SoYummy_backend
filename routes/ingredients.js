@@ -136,7 +136,7 @@ router.get('/', getRecipesByIngredients);
 router.get('/shopping-list/', auth, getIngredientsFromShoppingList);
 /**
  * @swagger
- * /api/shopping-list/:
+ * /api/ingredients/shopping-list/:
  *   get:
  *     tags:
  *       - Shopping List
@@ -184,7 +184,7 @@ router.get('/shopping-list/', auth, getIngredientsFromShoppingList);
  *           example: Error message here
  */
 
-router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
+router.get('/ingredients/shopping-list/:id', auth, addIngredientToShoppingList);
 /**
  * @swagger
  * /api/shopping-list/{id}:
@@ -253,7 +253,7 @@ router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
  *           example: Error message here
  */
 
-router.delete('/shopping-list/:id', auth, deleteIngredientFromShoppingList);
+router.delete('/ingredients/shopping-list/:id', auth, deleteIngredientFromShoppingList);
 /**
  * @swagger
  * /api/shopping-list/{id}:
