@@ -184,10 +184,10 @@ router.get('/shopping-list/', auth, getIngredientsFromShoppingList);
  *           example: Error message here
  */
 
-router.get('/ingredients/shopping-list/:id', auth, addIngredientToShoppingList);
+router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
 /**
  * @swagger
- * /api/shopping-list/{id}:
+ * /api/ingredients/shopping-list/{id}:
  *   get:
  *     tags:
  *       - Shopping List
@@ -253,10 +253,10 @@ router.get('/ingredients/shopping-list/:id', auth, addIngredientToShoppingList);
  *           example: Error message here
  */
 
-router.delete('/ingredients/shopping-list/:id', auth, deleteIngredientFromShoppingList);
+router.delete('/shopping-list/:id', auth, deleteIngredientFromShoppingList);
 /**
  * @swagger
- * /api/shopping-list/{id}:
+ * /api/ingredients/shopping-list/{id}:
  *   delete:
  *     tags:
  *       - Shopping List
