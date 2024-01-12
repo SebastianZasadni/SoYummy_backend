@@ -16,13 +16,14 @@ const deleteIngredientFromShoppingList = async (req, res, next) => {
             });
         };
         const newShoppingList = shoppingList.filter(ingredientId => ingredientId !== id)
-        await User.findByIdAndUpdate(
+        const response = await User.findByIdAndUpdate(
             _id,
             { shoppingList: newShoppingList },
             { new: true }
         );
         return res.status(200).json({
             status: "success",
+            response: response.shoppingList,
             message: "Ingredient has deleted from shopping list."
         })
 
