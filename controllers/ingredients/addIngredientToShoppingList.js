@@ -3,11 +3,11 @@ const User = require('../../models/user');
 const addIngredientToShoppingList = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { measure, title } = req.body;
+        const { measure, title, thumb } = req.body;
         const { _id } = req.user;
         const response = await User.findOneAndUpdate(
             _id,
-            { $addToSet: { shoppingList: { id, measure, title } } },
+            { $addToSet: { shoppingList: { id, measure, title, thumb } } },
             { new: true },
         );
         return res.status(200).json({
