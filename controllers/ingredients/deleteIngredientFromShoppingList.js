@@ -7,7 +7,7 @@ const deleteIngredientFromShoppingList = async (req, res, next) => {
         const data = await User.find({ _id });
         const { shoppingList } = data[0];
 
-        const isIngredientInShoppingList = shoppingList.filter(ingredientId => ingredientId === id);
+        const isIngredientInShoppingList = shoppingList.filter(ingredient => ingredient.id === id);
 
         if (!isIngredientInShoppingList.length) {
             return res.status(400).json({
@@ -15,7 +15,7 @@ const deleteIngredientFromShoppingList = async (req, res, next) => {
                 message: "Ingredient isn't in shopping list."
             });
         };
-        const newShoppingList = shoppingList.filter(ingredientId => ingredientId !== id)
+        const newShoppingList = shoppingList.filter(ingredient => ingredient.id !== id);
         const response = await User.findByIdAndUpdate(
             _id,
             { shoppingList: newShoppingList },

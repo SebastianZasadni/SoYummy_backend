@@ -17,7 +17,7 @@ const user = Schema({
         required: [true, "Password is required"],
     },
     shoppingList: {
-        type: [String], default: []
+        type: Array, default: []
     },
     token: {
         type: String,

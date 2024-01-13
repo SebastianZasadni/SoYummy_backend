@@ -184,7 +184,7 @@ router.get('/shopping-list/', auth, getIngredientsFromShoppingList);
  *           example: Error message here
  */
 
-router.get('/shopping-list/:id', auth, addIngredientToShoppingList);
+router.post('/shopping-list/:id', auth, addIngredientToShoppingList);
 /**
  * @swagger
  * /api/ingredients/shopping-list/{id}:
