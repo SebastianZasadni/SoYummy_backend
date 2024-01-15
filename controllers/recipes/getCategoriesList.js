@@ -5,7 +5,7 @@ const getCategoriesList = async (req, res, next) => {
         const categoriesList = await Category.find({});
         return res.status(200).json({
             status: "success",
-            categoriesList: categoriesList.sort()
+            data: categoriesList.sort()
         });
 
     } catch (error) {

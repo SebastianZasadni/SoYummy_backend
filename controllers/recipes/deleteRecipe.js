@@ -15,7 +15,7 @@ const deleteRecipe = async (req, res, next) => {
         return res.status(200).json({
             status: "success",
             message: "Recipe deleted",
-            recipe: newRecipes
+            data: newRecipes
         });
     } catch (error) {
         next(error);

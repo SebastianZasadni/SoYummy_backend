@@ -5,7 +5,7 @@ const getIngredientsList = async (req,res,next) => {
         const ingredientsList = await Ingredient.find({});
         return res.status(200).json({
             status: "success",
-            ingredientsList: ingredientsList
+            data: ingredientsList
         })
     } catch (error) {
         next(error);

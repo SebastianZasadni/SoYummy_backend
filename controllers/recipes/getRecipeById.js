@@ -13,7 +13,7 @@ const getRecipeById = async (req, res, next) => {
         }
         return res.status(200).json({
             status: "success",
-            recipe: recipe
+            data: recipe
         });
     } catch (error) {
         next(error);

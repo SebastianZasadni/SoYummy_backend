@@ -7,7 +7,7 @@ const getPopularRecipes = async (req, res, next) => {
         res.status(200).json({
             status: "success",
             countOfPopularRecipes: popularRecipes.length,
-            popularRecipes
+            data: popularRecipes
         });
     } catch (error) {
         next(error);
