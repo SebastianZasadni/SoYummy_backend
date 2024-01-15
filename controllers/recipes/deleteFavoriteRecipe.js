@@ -18,14 +18,17 @@ const deleteFavoriteRecipe = async (req, res, next) => {
                 message: "Recipe isn't in favorites."
             });
         };
-        const data = await Recipe.findByIdAndUpdate(
+        const updatedRecipe = await Recipe.findByIdAndUpdate(
             id,
             { $pull: { favorites: owner } },
             { new: true }
         );
+
+        console.log(updatedRecipe)
+        const allFavoritesRecipes = await Recipe.find({ favorites: owner });
         return res.status(200).json({
             status: "success",
-            data,
+            data: { updatedRecipe, allFavoritesRecipes },
             message: "Recipe has deleted from favorites."
         })
 

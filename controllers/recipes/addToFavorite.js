@@ -18,7 +18,8 @@ const addToFavorite = async (req, res, next) => {
                 message: "Recipe is already in favorites."
             });
         };
-        const data = await Recipe.findByIdAndUpdate({ _id: id }, { $addToSet: { favorites: owner } },);
+        const data = await Recipe.findByIdAndUpdate({ _id: id }, { $addToSet: { favorites: owner } }, { new: true });
+
         return res.status(200).json({
             status: "success",
             data,
