@@ -12,7 +12,7 @@ const getFavoritesRecipes = async (req, res, next) => {
         };
         res.status(200).json({
             status: "success",
-            recipes
+            data
         })
     } catch (error) {
         next(error);
