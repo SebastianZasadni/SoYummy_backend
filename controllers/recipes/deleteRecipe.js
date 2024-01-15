@@ -11,10 +11,11 @@ const deleteRecipe = async (req, res, next) => {
                 message: "Recipe not found"
             });
         }
+        const newRecipes = await Recipe.find({ owner: _id })
         return res.status(200).json({
             status: "success",
             message: "Recipe deleted",
-            recipe: deleteRecipe
+            recipe: newRecipes
         });
     } catch (error) {
         next(error);
