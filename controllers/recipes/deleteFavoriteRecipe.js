@@ -23,8 +23,6 @@ const deleteFavoriteRecipe = async (req, res, next) => {
             { $pull: { favorites: owner } },
             { new: true }
         );
-
-        console.log(updatedRecipe)
         const allFavoritesRecipes = await Recipe.find({ favorites: owner });
         return res.status(200).json({
             status: "success",
