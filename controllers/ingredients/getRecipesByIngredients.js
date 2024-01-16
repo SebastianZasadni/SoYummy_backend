@@ -11,7 +11,7 @@ const getRecipesByIngredients = async (req, res, next) => {
             .filter(recipe =>
                 recipe.ingredients
                     .some(ingredient => ingredientId.includes(ingredientIdToString)));
-        res.json({ data: recipesByIngredient, count: recipesByIngredient.length });
+        return res.status(200).json({ data: recipesByIngredient, count: recipesByIngredient.length });
     }
     catch (error) {
         next(error);
