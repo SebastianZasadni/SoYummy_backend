@@ -7,6 +7,7 @@ const login = require('../controllers/auth/login');
 const logout = require('../controllers/auth/logout');
 const current = require('../controllers/auth/current');
 const sendNewsletterEmail = require('../controllers/auth/sendNewsletterEmail');
+const uploadImage = require('../controllers/auth/uploadImage');
 
 router.post('/signup', signup);
 /**
@@ -292,5 +293,6 @@ router.get('/logout', auth, logout);
  *       500:
  *         description: Server Error
  */
+router.post('/uploadImage', auth, uploadImage);
 
 module.exports = router;

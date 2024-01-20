@@ -13,7 +13,7 @@ const addIngredientToShoppingList = async (req, res, next) => {
         return res.status(200).json({
             status: "success",
             data: response.shoppingList,
-            message: "Ingredient add successuly"
+            message: "Ingredient add successfuly"
         })
     }
     catch (error) {

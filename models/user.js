@@ -19,6 +19,9 @@ const user = Schema({
     shoppingList: {
         type: Array, default: []
     },
+    thumb: {
+        type: String, default: [],
+    },
     token: {
         type: String,
         default: null
