@@ -37,6 +37,7 @@ const login = async (req, res, next) => {
                     id: payload.id,
                     email: payload.email,
                     username: isUser.name,
+                    thumb: isUser.thumb
                 },
                 token
             });

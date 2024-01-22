@@ -4,7 +4,7 @@ const current = async (req, res, next) => {
     try {
         const { email, name, id, token } = req.user;
         return res.status(200).json({
-            id, name, email, token
+            id, name, email, token, thumb
         })
     } catch (error) {
         next(error);
