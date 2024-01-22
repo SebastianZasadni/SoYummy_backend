@@ -8,7 +8,7 @@ const uploadImage = async (req, res, next) => {
         return res.status(200).json({
             status: "success",
             data: image,
-            message: "Photo add successfuly"
+            message: "Photo has been added successfuly"
         })
     } catch (error) {
         next(error);
