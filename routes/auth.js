@@ -156,6 +156,9 @@ router.post('/login', login);
  *             email:
  *               type: string
  *               description: The email of the user
+ *             thumb:
+ *               type: string
+ *               description: The thumb of the user
  *             username:
  *               type: string
  *               description: The name of the user
@@ -255,6 +258,9 @@ router.get('/current', auth, current);
  *         email:
  *           type: string
  *           description: The email of the user
+ *         thumb:
+ *           type: string
+ *           description: The thumb of the user
  *         token:
  *           type: string
  *           description: The JWT token for authentication
@@ -294,7 +300,107 @@ router.get('/logout', auth, logout);
  *       500:
  *         description: Server Error
  */
+
 router.post('/uploadImage', auth, uploadImage);
+/**
+ * @swagger
+ * /api/users/uploadImage:
+ *   post:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - User Controller
+ *     summary: Upload user profile image
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 description: Base64 encoded image data
+ *     responses:
+ *       200:
+ *         description: Photo has been added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   description: Status message
+ *                 data:
+ *                   type: string
+ *                   description: Base64 encoded image data
+ *                 message:
+ *                   type: string
+ *                   description: Message indicating successful image upload
+ *       401:
+ *         description: Unauthorized - User not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Message indicating unauthorized access
+ *       500:
+ *         description: Server Error
+ */
+
 router.post('/updateUsername', auth, updateUsername);
+/**
+ * @swagger
+ * /api/users/updateUsername:
+ *   post:
+ *     security:
+ *       - bearerAuth: []
+ *     tags:
+ *       - User Controller
+ *     summary: Update user's username
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 description: New username for the user
+ *     responses:
+ *       200:
+ *         description: Username has been changed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   description: Status message
+ *                 data:
+ *                   type: string
+ *                   description: New username
+ *                 message:
+ *                   type: string
+ *                   description: Message indicating successful username change
+ *       401:
+ *         description: Unauthorized - User not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Message indicating unauthorized access
+ *       500:
+ *        description: Server Error
+ */
 
 module.exports = router;
