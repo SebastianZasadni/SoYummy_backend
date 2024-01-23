@@ -8,6 +8,7 @@ const logout = require('../controllers/auth/logout');
 const current = require('../controllers/auth/current');
 const sendNewsletterEmail = require('../controllers/auth/sendNewsletterEmail');
 const uploadImage = require('../controllers/auth/uploadImage');
+const updateUsername = require('../controllers/auth/updateUsername');
 
 router.post('/signup', signup);
 /**
@@ -294,5 +295,6 @@ router.get('/logout', auth, logout);
  *         description: Server Error
  */
 router.post('/uploadImage', auth, uploadImage);
+router.post('/updateUsername', auth, updateUsername);
 
 module.exports = router;
