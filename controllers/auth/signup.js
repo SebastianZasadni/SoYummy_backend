@@ -30,7 +30,8 @@ const signup = async (req, res, next) => {
         await User.create({
             email,
             password: hashedPassword,
-            name
+            name,
+            thumb: "http://res.cloudinary.com/ddv9ajise/image/upload/v1706520134/v9rrvxurrfc9lqz9niso.png"
         });
 
         return res.status(201).json({
