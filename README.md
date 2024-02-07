@@ -36,4 +36,4 @@
 <li>API_KEY = "Cludinary API key"</li>
 <li>API_SECRET = "Cloudinary API secret</li>
 </ul>
-<p>Then you run npm start, then npm run dev and your API's working</p>
+<p>Then you run npm install, then npm run dev and your API's working</p>
